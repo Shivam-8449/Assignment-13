@@ -1,0 +1,15 @@
+<td *ngFor="let prop of userProps">
+  <input ngClass="input-control" [disabled]="!editMode" *ngIf="userProps[0] != prop && userProps[6] != prop && userProps[8] != prop" [(ngModel)]="user[prop]"/>
+  <select ngClass="input-control" [disabled]="!editMode" *ngIf="userProps[6] == prop" [(ngModel)]="user[prop]" value="{{user.role_id}}">
+    <option value="{{role.SUPERADMIN}}">SUPERADMIN</option>
+    <option value="{{role.ADMIN}}">ADMIN</option>
+    <option value="{{role.SUBSCRIBER}}">SUBSCRIBER</option>
+  </select>
+  <input ngClass="input-control" type="number" [disabled]="!editMode" *ngIf="userProps[8] == prop" [(ngModel)]="user[prop]"/>
+</td>
+<td>
+  <button (click)="edit()" *ngIf="!editMode">Edit</button>
+  <button (click)="delete()" *ngIf="!editMode">Delete</button>
+  <button (click)="save()" *ngIf="editMode">Save</button>
+  <button (click)="cancel()" *ngIf="editMode">Cancel</button>
+</td>

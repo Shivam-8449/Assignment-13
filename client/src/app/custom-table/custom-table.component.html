@@ -1,0 +1,15 @@
+<!-- <p>custom-table works!</p> -->
+<button #refreshBtn id="refresh-btn" (click)="refresh()">Refresh Data</button>
+<table>
+  <thead>
+      <th *ngFor="let prop of userProps async">{{prop | humanize}}</th>
+      <th>OPERATIONS</th>
+  </thead>
+  <tbody>
+    <tr app-table-row [reloadBtn]="refreshBtn" [user]="user" [userProps]="userProps" *ngFor="let user of users"></tr>
+  </tbody>
+</table>
+
+<div class="add-user-container">
+  <button routerLink="/add-user" (click)="addUser()">Add User</button>
+</div>
